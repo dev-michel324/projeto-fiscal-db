@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-    <h1 class="text-center">Instituições</h1>
+    <h1 class="text-center my-5">Instituições</h1>
     <a href="{{ route('instituicoes.create') }}" class="btn btn-sm btn-success">Novo</a>
-    <div class="table-responsive">
+    <div class="table-responsive my-5">
         <table class="table">
-            <thead>
+            <thead class="--bg-gradient-primary">
                 <th>ID</th>
                 <th>Nome</th>
                 <th>CNPJ</th>
@@ -22,10 +22,11 @@
                         <td>{{$instituicao->id}}</td>
                         <td>{{$instituicao->nome}}</td>
                         <td>{{$instituicao->cnpj}}</td>
+                        <td>{{$instituicao->saldo}}</td>
                         <td>
                             <form action="{{ route('instituicoes.destroy', ['instituicao' => $instituicao->id]) }}" method="post">
                                 @csrf
-                                <input type="submit" class="btn btn-danger" value="Remover">
+                                <input type="submit" class="btn btn-sm btn-danger" value="Remover">
                             </form>
                         </td>
                     </tr>
