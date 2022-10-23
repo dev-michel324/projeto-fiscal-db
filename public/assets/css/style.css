@@ -1,0 +1,191 @@
+:root{
+    /* COLORS */
+    --color-primary: #9ac2fe;
+    --color-secondary: #6c757d;
+    --color-success: #198754;
+    --color-info: #0dcaf0;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+    --color-light: #f8f9fa;
+    --color-dark: #212529;
+}
+
+body, * {
+    margin: 0;
+    padding: 0;
+}
+
+/* BG COLORS */
+.--bg-primary {background-color: var(--color-primary);}
+.--bg-success {background-color: var(--color-success);}
+.--bg-secondary {background-color: var(--color-secondary);}
+.--bg-info {background-color: var(--color-info);}
+.--bg-warning {background-color: var(--color-warning);}
+.--bg-danger {background-color: var(--color-danger);}
+.--bg-light {background-color: var(--color-light);}
+
+.--bg-gradient-primary{background: linear-gradient(#e1eaf8, var(--color-primary));}
+
+.display-flex {
+    display: flex;
+    gap: 10px;
+}
+
+/* ALIGN-ITEMS TOOLTIPS */
+.align-items-center {align-items: center;}
+.align-items-start {align-items: flex-start;}
+.align-items-end {align-items: flex-end;}
+
+.navbar-brand > a{
+    font-size: 30px;
+}
+
+.nav-link { 
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+.nav-link:hover{
+    color: rgb(49, 49, 49);
+}
+
+a { 
+    text-decoration: none;
+    color: black;
+}
+
+.container-fluid{
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.navbar-options li{
+    display: inline-flex;
+}
+
+.container {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 700px){
+    .container{
+        width: 100%;
+    }
+}
+
+/* TEXT TOOLTIPS */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right {text-align: right;}
+.text-justify {text-align: justify;}
+
+/* MARGIN TOOLTIPS */
+.mx-1{margin: 0px 4px 0px 4px;}
+.mx-2{margin: 0px 8px 0px 8px;}
+.mx-3{margin: 0px 12px 0px 12px;}
+.mx-4{margin: 0px 16px 0px 16px;}
+.mx-5{margin: 0px 20px 0px 20px;}
+
+.my-1{margin: 4px 0px 4px 0px;}
+.my-2{margin: 8px 0px 8px 0px;}
+.my-3{margin: 12px 0px 12px 0px;}
+.my-4{margin: 16px 0px 16px 0px;}
+.my-5{margin: 20px 0px 20px 0px;}
+
+.mb-1{margin-bottom: 4px;}
+.mb-2{margin-bottom: 8px;}
+.mb-3{margin-bottom: 12px;}
+.mb-4{margin-bottom: 16px;}
+.mb-5{margin-bottom: 20px;}
+
+.mx-auto{margin: 0px auto 0 auto;}
+
+/* PADDING TOOLTIPS */
+.px-1{padding: 0px 4px 0px 4px;}
+.px-2{padding: 0px 8px 0px 8px;}
+.px-3{padding: 0px 12px 0px 12px;}
+.px-4{padding: 0px 16px 0px 16px;}
+.px-5{padding: 0px 20px 0px 20px;}
+
+.py-1{padding: 4px 0px 4px 0px;}
+.py-2{padding: 8px 0px 8px 0px;}
+.py-3{padding: 12px 0px 12px 0px;}
+.py-4{padding: 16px 0px 16px 0px;}
+.py-5{padding: 20px 0px 20px 0px;}
+
+/* BUTTONS */
+.btn{padding: 10px; border: none; font-weight: bold; border-radius: 3px;}
+.btn-sm{padding: 6px;}
+.btn-md{padding: 8px; font-size: 16px;}
+.btn-lg{padding: 10px; font-size: 18px;}
+
+.btn-primary{
+    background: linear-gradient(#e1eaf8, var(--color-primary));
+    color: #0d69f1;
+    border: 1px solid #93beff;
+}
+
+.btn-danger{
+    background: linear-gradient(#e06d79, var(--color-danger));
+}
+
+.btn-success {
+    background: linear-gradient(#8ac2a8, var(--color-success));
+    border: 1px solid #65c497;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+.btn-danger:hover{
+    background: linear-gradient(#e7a1a6, #da4554);
+}
+
+.btn-primary:hover{
+    background: linear-gradient(#e1eaf8, #bdd7ff);
+}
+
+.btn-success:hover{
+    background: linear-gradient(#8ac2a8, #429c72);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th{
+    padding: 10px;
+    font-weight: bold;
+}
+
+td{
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding: 3px 0 3px 0;
+}
+
+/* BORDER RADIUS*/
+.br-1{border-radius: 3px;}
+.br-2{border-radius: 5px;}
+.br-3{border-radius: 8px;}
+.br-4{border-radius: 10px;}
+.br-5{border-radius: 12px;}
+.br-rounded{border-radius: 50%;}
+
+/* SHADOWS */
+.shadow-1{box-shadow: 0px 2px 5px grey;}
+.shadow-2{box-shadow: 3px 5px 7px grey;}
+
+/* FORM */
+.form-control {width: 100%; padding: 5px 0px 5px 0px;}
+.form-control-sm {padding: 3px 0px 3px 0px;}
+.form-control-lg {padding: 8px 0px 8px 0px;}
+
+/* VALIDATION */
+.is-invalid {border: 1px solid var(--color-danger);}
+.invalid-feedback{color: var(--color-danger);}
