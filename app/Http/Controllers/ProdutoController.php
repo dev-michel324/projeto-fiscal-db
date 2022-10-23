@@ -38,18 +38,22 @@ class ProdutoController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nome' => 'required|string|max:45',
-            'cnpj' => 'required|string|max:22|unique:instituicaos,cnpj'
+            'descricao' => 'required|string|max:45',
+            'taxa' => 'required|numeric|max:100|',
+            'estoque' => 'required|integer',
+            'valor' => 'required|numeric'
         ]);
 
         Produto::create([
             'descricao' => $request->descricao,
             'taxa' => $request->taxa,
-            ''
+            'estoque' => $request->estoque,
+            'valor' => $request->valor
         ]);
+
         return redirect()
-            ->route('instituicoes.index')
-            ->with('success', 'Instituição adicionada com sucesso.');
+            ->route('produtos.index')
+            ->with('success', 'Produto adicionada com sucesso.');
     }
 
     /**
@@ -64,29 +68,6 @@ class ProdutoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -94,6 +75,10 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Produto::findOrFail($id)->delete();
+
+        return redirect()
+            ->route('produtos.index')
+            ->with('success', "Produto removido com sucesso.");
     }
 }
