@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 require __DIR__ . '/empresas.php';
 require __DIR__ . '/instituicoes.php';
+require __DIR__ . '/produtos.php';
+require __DIR__ . '/vendas.php';
