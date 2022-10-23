@@ -11,7 +11,8 @@
     <main>
         <h1 class="text-center">Inicio</h1>
 
-        
+        <button class="btn btn-sm btn-primary">Inicio</button>
+        <button class="btn btn-sm btn-success">Inicio</button>
 
     </main>
 
