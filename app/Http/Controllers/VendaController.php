@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Venda;
+use App\Models\{Venda, Produto};
 
 class VendaController extends Controller
 {
@@ -26,7 +26,9 @@ class VendaController extends Controller
      */
     public function create()
     {
-        return view('vendas.create');
+        $products = Produto::all();
+
+        return view('vendas.create', compact('products'));
     }
 
     /**
