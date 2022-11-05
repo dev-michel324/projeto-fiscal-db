@@ -12,6 +12,12 @@ class Venda extends Model
     protected $fillable = [
         'qntd',
         'valor_total',
-        'cupom_id'
+        'cupom_id',
+        'produto_id'
     ];
+
+    public function produto()
+    {
+        return $this->belongsTo(Produto::class, 'produto_id', 'id');
+    }
 }
