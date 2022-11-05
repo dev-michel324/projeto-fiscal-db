@@ -5,6 +5,10 @@
 @endsection
 
 @section('content')
+    @if($errors->any())
+        {!! implode('', $errors->all('<div>:message</div>')) !!}
+    @endif
+
     <h1 class="my-5">Nova venda</h1>
 
     <div>
@@ -48,9 +52,9 @@
             </table>
         </div>
 
-        <form action="{{route('vendas.store')}}" method="post">
-            
-            <input type="submit" value="Salvar" class="btn btn-sm btn-success">
+        <form id="form_cart" action="{{route('vendas.store')}}" method="post">
+            @csrf
+            <input id="sendForm" type="button" value="Salvar" class="btn btn-sm btn-success">
         </form>
 
         <div class="modal shadow-2 position-fixed display-none fade-in modal-center">
