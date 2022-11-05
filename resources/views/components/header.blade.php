@@ -17,6 +17,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ route('vendas.index') }}">Vendas</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ route('cupons.index') }}">Cupons</a>
+          </li>
         </ul>
       </div>
   </div>
