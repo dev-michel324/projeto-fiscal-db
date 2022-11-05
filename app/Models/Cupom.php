@@ -14,4 +14,14 @@ class Cupom extends Model
         'doado',
         'empresa_id',
     ];
+
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class, 'empresa_id', 'id');
+    }
+
+    public function instituicao()
+    {
+        return $this->belongsTo(Instituicao::class, 'instituicao_id', 'id');
+    }
 }
