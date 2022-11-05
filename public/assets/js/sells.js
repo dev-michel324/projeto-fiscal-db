@@ -1,28 +1,33 @@
 const productsTable = document.getElementById('available-products');
 const cart = document.getElementById('cart');
 let productData = null;
+const cart_data = [];
+
+function closeModal(){
+    document.querySelector('.modal')
+        .classList.add('display-none');
+}
 
 document.getElementById('cancel-modal')
     .addEventListener('click', (e) => {
-        document.querySelector('.modal')
-            .classList.add('display-none');
+        closeModal();
     });
 
 document.getElementById('confirm-buy')
     .addEventListener('click', (e) => {
         if(!verifyQntd())
             return alert('Quantidade inválida.');
-        
+        return confirmBuy(productData);
     });
 
 function getDataFromTable(rowIndex){
-    const tr = productsTable.querySelectorAll('tr')[rowIndex]
-    const tds = tr.querySelectorAll('td');
+    const row = productsTable.querySelectorAll('tr')[rowIndex]
+    const datas = row.querySelectorAll('td');
     return {
-        'id': parseInt(tds[0].textContent),
-        'description': tds[1].textContent,
-        'valor': parseFloat(tds[2].textContent),
-        'estoque': parseInt(tds[4].textContent)
+        'id': parseInt(datas[0].textContent),
+        'description': datas[1].textContent,
+        'valor': parseFloat(datas[2].textContent),
+        'estoque': parseInt(datas[4].textContent)
     };
 }
 
@@ -56,3 +61,35 @@ function buy(data) {
     productData = getDataFromTable(rowIndex);
     insertToModal(productData['description'], productData['estoque']);
 }
+
+function confirmBuy(product){
+    const qntd = parseInt(document.querySelector('#product-qntd-user').value);
+    if(!verifyQntd())
+        return alert("Quantidade do produto inválido.");
+    delete product['estoque'];
+    product['user_qntd'] = qntd;
+    cart_data.push(product);
+    closeModal();
+    return renderToCartTable();
+}
+
+function renderToCartTable(){
+    let content = "";
+    for(line in cart_data)
+        content += `<tr><td>${cart_data[line]['id']}</td><td>${cart_data[line]['description']}</td><td>${cart_data[line]['valor']}</td><td>${cart_data[line]['user_qntd']}</td></tr>`;
+    cart.querySelector('tbody').innerHTML = content;
+}
+
+document.getElementById('sendForm')
+    .addEventListener('click', () => {
+        if (cart_data.length == 0)
+            return alert('Você precisa adicionar um produto ao carrinho antes de comprar.');
+        let form = document.getElementById('form_cart');
+        let hiddenInput = document.createElement('input');
+
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'data';
+        hiddenInput.value = JSON.stringify(cart_data);
+        form.appendChild(hiddenInput);
+        form.submit();
+    })
