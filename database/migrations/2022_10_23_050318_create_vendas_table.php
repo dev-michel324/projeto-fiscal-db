@@ -18,7 +18,9 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('qntd');
             $table->decimal('valor_total', 6, 3);
-            $table->bigInteger('cupom_id')->unsigned();
+            $table->bigInteger('produto_id')->unsigned();
+            $table->foreign('produto_id')->references('id')->on('produtos');
+            $table->bigInteger('cupom_id')->unsigned()->nullable();
             $table->foreign('cupom_id')->references('id')->on('cupoms');
         });
     }
