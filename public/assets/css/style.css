@@ -239,3 +239,8 @@ td{
     top: 50%;
     transform: translate(-50%, -50%)
 }
+
+.d-block {display: block;}
+
+.link {color: #0d69f1;}
+.link:hover {color: black;}
